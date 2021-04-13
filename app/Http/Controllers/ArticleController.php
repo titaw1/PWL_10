@@ -76,9 +76,25 @@ class ArticleController extends Controller
      * @param  \App\Models\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Article $article)
+    public function update(Request $request, $id)
     {
-        //
+        $article = Article::find($id); //untuk menemukan article berdasarkan id
+
+        //setelah article ditemukan maka akan dilakukan request setiap field
+        $article->title = $request->title;
+        $article->content = $request->content;
+
+        //kondisi jika file gambar tersedia maka file yang lama akan dihapus
+        if ($article->featured_image && file_exists(storage_path('app/public/' . $article->featured_image))) {
+            \Storage::delete('public/' . $article->featured_image);
+        }
+        //apabila file gambar belum tersedia maka file baru yang diupload akan disimpan
+        $image_name = $request->file('image')->store('images', 'public');
+        $article->featured_image = $image_name;
+
+        //menyimpan perubahan yang dilakukan
+        $article->save();
+        return 'Artikel berhasil diubah';
     }
 
     /**
