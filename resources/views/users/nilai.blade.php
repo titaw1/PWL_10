@@ -37,5 +37,8 @@
     <div class="float-right my-2">
         <a class="btn btn-success mt-3" href="{{ route('mahasiswa.index') }}">Kembali</a>
     </div>
+    <div class="float-center my-2 text-center">
+        <a class="btn btn-danger mt-3" href="{{ route('mahasiswa.cetak_khs',$Mahasiswa->Nim) }}">Cetak PDF</a>
+    </div>
 
 @endsection
