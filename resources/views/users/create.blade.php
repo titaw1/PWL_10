@@ -31,8 +31,8 @@
                             <input type="Nama" name="Nama" class="form-control" id="Nama" aria-describedby="Nama">
                         </div>
                         <div class="form-group">
-                            <label for="image">Foto</label>
-                            <input type="file" name="image" class="form-control" id="image" aria-describedby="image" required="required">
+                            <label for="Foto">Foto</label>
+                            <input type="file" name="Foto" class="form-control" id="Foto" aria-describedby="Foto" required="required">
                         </div>
                         <div class="form-group">
                             <label for="Tanggal_Lahir">Tanggal_Lahir</label>
