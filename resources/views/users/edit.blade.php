@@ -35,8 +35,8 @@
                                 aria-describedby="Nama">
                         </div>
                         <div class="form-group">
-                            <label for="image">Foto</label>
-                            <input type="file" name="image" class="form-control" id="image" value="{{ $Mahasiswa->Foto }}" aria-describedby="image" required="required">
+                            <label for="Foto">Foto</label>
+                            <input type="file" name="Foto" class="form-control" id="Foto" value="{{ $Mahasiswa->Foto }}" aria-describedby="Foto" required="required">
                             <img width="150px" src="{{ asset('storage/' . $Mahasiswa->Foto) }}">
                         </div>
                         <div class="form-group">
