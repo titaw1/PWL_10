@@ -17,7 +17,10 @@ class MahasiswaController extends Controller
     public function index(Request $request)
     {
         if($request->has('search')){ // Pemilihan jika ingin melakukan pencarian nama
-            $mahasiswas = Mahasiswa::where('Nama', 'like', "%".$request->search."%")->paginate(5);
+            $mahasiswas = Mahasiswa::where('Nim', 'like', "%".$request->search."%")
+            ->orwhere('Nama', 'like', "%".$request->search."%")
+            ->orwhere('Tanggal_Lahir', 'like', "%".$request->search."%")
+            ->orwhere('Jurusan', 'like', "%".$request->search."%")->paginate(5);
         } else { // Pemilihan jika tidak melakukan pencarian nama
             //fungsi eloquent menampilkan data menggunakan pagination
             $mahasiswas = Mahasiswa::with('kelas')->get();
